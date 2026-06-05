@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+/* ───────────────────────────────────────────────────────────────
+   Olimversal Academy — Design Tokens
+   Vibe: Golden Hour Earthy · cinematic · editorial
+   charcoal + amber/gold + sage + foggy cream
+   ─────────────────────────────────────────────────────────────── */
+@theme {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+
+  /* Night / warm charcoal surfaces */
+  --color-night-950: #0d0a07;
+  --color-night-900: #15110b;
+  --color-night-800: #1f1810;
+  --color-night-700: #2a2117;
+  --color-night-600: #3a2f21;
+
+  /* Amber / gold — primary */
+  --color-amber-200: #f0dcb8;
+  --color-amber-300: #e6c690;
+  --color-amber-400: #d8a85f;
+  --color-amber-500: #c08838;
+  --color-amber-600: #9c6b29;
+
+  /* Sage — secondary */
+  --color-sage-300: #c2c9b2;
+  --color-sage-400: #97a37e;
+  --color-sage-500: #6f7d57;
+
+  /* Cream / fog — text & light accents */
+  --color-cream-100: #f5efe2;
+  --color-cream-200: #e9ddc8;
+  --color-cream-300: #d6c6a8;
+
+  /* Terracotta pop */
+  --color-clay-400: #c2784d;
+  --color-clay-500: #a85d36;
+
+  --radius-4xl: 2rem;
+  --radius-5xl: 2.5rem;
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-float: float 8s ease-in-out infinite;
+  --animate-aurora: aurora 20s ease-in-out infinite alternate;
+  --animate-kenburns: kenburns 24s ease-in-out infinite alternate;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+@keyframes aurora {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(5%, -4%) scale(1.12); }
+  100% { transform: translate(-4%, 4%) scale(1.05); }
+}
+@keyframes kenburns {
+  0% { transform: scale(1.05) translate(0, 0); }
+  100% { transform: scale(1.18) translate(-2%, -2%); }
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background-color: var(--color-night-950);
+    color: var(--color-cream-100);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+  ::selection {
+    background-color: var(--color-amber-400);
+    color: var(--color-night-950);
+  }
+  ::-webkit-scrollbar {
+    width: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-night-950);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--color-amber-500), var(--color-sage-500));
+    border-radius: 999px;
+    border: 2px solid var(--color-night-950);
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+  .text-gradient {
+    background-image: linear-gradient(
+      100deg,
+      var(--color-amber-300),
+      var(--color-cream-100) 50%,
+      var(--color-sage-300)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .glass {
+    background: rgba(245, 239, 226, 0.04);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(230, 198, 144, 0.12);
+  }
+  .glow-amber {
+    box-shadow: 0 0 0 1px rgba(216, 168, 95, 0.22),
+      0 22px 70px -16px rgba(192, 136, 56, 0.5);
+  }
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent
+    );
+  }
+  .grid-bg {
+    background-image: linear-gradient(rgba(216, 168, 95, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(216, 168, 95, 0.06) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  /* cinematic film grain */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .perspective {
+    perspective: 1400px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
