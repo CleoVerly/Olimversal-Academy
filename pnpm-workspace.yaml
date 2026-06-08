@@ -1,0 +1,9 @@
+# Konfigurasi pnpm (pnpm 11 membaca setting dari sini, bukan field "pnpm" di package.json)
+
+# sharp tidak dipakai (kita pakai <img>, bukan next/image) → lewati build script-nya
+# supaya install tidak error "ignored build scripts".
+neverBuiltDependencies:
+  - sharp
+
+# jangan auto-jalankan "pnpm install" tiap sebelum "pnpm run <script>"
+verifyDepsBeforeRun: false
