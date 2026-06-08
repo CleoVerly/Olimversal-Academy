@@ -93,7 +93,7 @@ function CtrlButton({
       onClick={onClick}
       whileHover={{ scale: 1.08 }}
       whileTap={{ scale: 0.94 }}
-      className="glass grid h-12 w-12 place-items-center rounded-full text-cream-100 transition-colors hover:text-amber-300"
+      className="glass grid h-12 w-12 place-items-center rounded-full text-ink transition-colors hover:text-accent"
     >
       {children}
     </motion.button>
@@ -157,8 +157,8 @@ function TutorCard({
     >
       <motion.div
         style={{ rotateX: isActive ? rx : 0, rotateY: isActive ? ry : 0 }}
-        className={`preserve-3d relative h-full w-full overflow-hidden rounded-[2rem] border border-cream-100/15 bg-night-800 shadow-2xl ${
-          isActive ? "glow-amber" : ""
+        className={`preserve-3d relative h-full w-full overflow-hidden rounded-[2rem] border border-line bg-surface2 shadow-2xl ${
+          isActive ? "glow-primary" : ""
         }`}
       >
         <img
@@ -168,7 +168,7 @@ function TutorCard({
           loading="lazy"
         />
         {/* readability gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-night-950 via-night-950/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-indigo-950 via-indigo-950/30 to-transparent" />
 
         {/* glare follows cursor (active only) */}
         {isActive && (
@@ -184,7 +184,7 @@ function TutorCard({
           style={{ transform: "translateZ(40px)" }}
           className="absolute left-5 top-5"
         >
-          <span className="rounded-full bg-amber-400/90 px-3 py-1 text-xs font-bold text-night-950 backdrop-blur">
+          <span className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-white backdrop-blur">
             {tutor.subject}
           </span>
         </div>
@@ -194,14 +194,14 @@ function TutorCard({
           style={{ transform: "translateZ(30px)" }}
           className="absolute inset-x-0 bottom-0 p-6"
         >
-          <h3 className="font-serif text-xl font-bold leading-tight text-cream-100">
+          <h3 className="font-serif text-xl font-bold leading-tight text-white">
             {tutor.name}
           </h3>
-          <p className="mt-2 flex items-center gap-1.5 text-sm text-amber-200">
+          <p className="mt-2 flex items-center gap-1.5 text-sm text-accentl">
             <BadgeCheck className="h-4 w-4" />
             {tutor.medal}
           </p>
-          <p className="mt-1 flex items-center gap-1.5 text-xs text-cream-200/60">
+          <p className="mt-1 flex items-center gap-1.5 text-xs text-white/70">
             <GraduationCap className="h-3.5 w-3.5" />
             {tutor.school}
           </p>

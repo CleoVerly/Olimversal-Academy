@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { GraduationCap, Menu, X } from "lucide-react";
 import { BRAND, NAV_LINKS } from "../data/content";
 import { Button } from "./ui/Button";
+import { ThemeToggle } from "./ui/ThemeToggle";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,16 +27,16 @@ export function Navbar() {
     >
       <nav
         className={`flex w-full max-w-6xl items-center justify-between rounded-full px-5 py-3 transition-all duration-300 ${
-          scrolled ? "glass glow-amber" : "border border-transparent"
+          scrolled ? "glass glow-primary" : "border border-transparent"
         }`}
       >
         <a href="#top" className="flex items-center gap-2.5">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-amber-400 to-sage-400 shadow-lg shadow-amber-500/40">
-            <GraduationCap className="h-5 w-5 text-night-950" strokeWidth={2.5} />
+          <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-lg shadow-primary/40">
+            <GraduationCap className="h-5 w-5 text-white" strokeWidth={2.5} />
           </span>
-          <span className="font-serif text-lg font-bold tracking-tight">
+          <span className="font-serif text-lg font-bold tracking-tight text-ink">
             {BRAND.name}
-            <span className="text-amber-400">.</span>
+            <span className="text-accent">.</span>
           </span>
         </a>
 
@@ -44,7 +45,7 @@ export function Navbar() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="relative rounded-full px-4 py-2 text-sm font-medium text-cream-100/80 transition-colors hover:text-white"
+                className="relative rounded-full px-4 py-2 text-sm font-medium text-soft transition-colors hover:text-ink"
               >
                 {l.label}
               </a>
@@ -52,19 +53,23 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-2 lg:flex">
+          <ThemeToggle />
           <Button href="#paket" className="px-6 py-2.5">
             Ayo Daftar
           </Button>
         </div>
 
-        <button
-          aria-label="Buka menu"
-          onClick={() => setOpen((o) => !o)}
-          className="glass grid h-10 w-10 place-items-center rounded-xl lg:hidden"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
+          <button
+            aria-label="Buka menu"
+            onClick={() => setOpen((o) => !o)}
+            className="glass grid h-10 w-10 place-items-center rounded-xl text-ink"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -74,7 +79,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.25 }}
-            className="glass glow-amber absolute inset-x-4 top-20 rounded-3xl p-4 lg:hidden"
+            className="glass glow-primary absolute inset-x-4 top-20 rounded-3xl p-4 lg:hidden"
           >
             <ul className="flex flex-col">
               {NAV_LINKS.map((l) => (
@@ -82,7 +87,7 @@ export function Navbar() {
                   <a
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-2xl px-4 py-3 text-sm font-medium text-cream-100/90 transition-colors hover:bg-white/5"
+                    className="block rounded-2xl px-4 py-3 text-sm font-medium text-soft transition-colors hover:bg-primary/10 hover:text-ink"
                   >
                     {l.label}
                   </a>

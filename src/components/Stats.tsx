@@ -21,11 +21,11 @@ export function Stats() {
             variants={fadeUp}
             className="glass group relative overflow-hidden rounded-4xl p-7 text-center transition-transform duration-300 hover:-translate-y-1"
           >
-            <span className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-amber-500/20 blur-2xl transition-opacity duration-300 group-hover:opacity-100" />
+            <span className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-primary/20 blur-2xl transition-opacity duration-300 group-hover:opacity-100" />
             <div className="font-serif text-4xl font-bold text-gradient sm:text-5xl">
               <Counter to={s.value} suffix={s.suffix} />
             </div>
-            <p className="mt-2 text-sm font-medium text-cream-200/70">
+            <p className="mt-2 text-sm font-medium text-soft">
               {s.label}
             </p>
           </motion.div>

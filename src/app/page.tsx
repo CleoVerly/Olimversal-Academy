@@ -14,7 +14,7 @@ import { ScrollProgress } from "../components/ui/ScrollProgress";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-night-950">
+    <div className="relative min-h-screen bg-bg">
       <ScrollProgress />
       <Navbar />
       <main>

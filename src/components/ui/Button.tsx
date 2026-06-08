@@ -25,8 +25,8 @@ export function Button({
 
   const styles =
     variant === "primary"
-      ? "text-night-950 bg-gradient-to-r from-amber-300 via-amber-400 to-clay-400 shadow-[0_12px_40px_-8px_rgba(192,136,56,0.65)]"
-      : "glass text-cream-100 hover:bg-white/10";
+      ? "text-white bg-gradient-to-r from-primary via-primaryl to-accent shadow-[0_12px_40px_-8px_var(--glow)]"
+      : "glass text-ink hover:bg-primary/10";
 
   return (
     <motion.a
@@ -38,7 +38,7 @@ export function Button({
       className={`${base} ${styles} ${className}`}
     >
       {variant === "primary" && (
-        <span className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-300 via-amber-400 to-clay-400 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-70" />
+        <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-primaryl to-accent opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-70" />
       )}
       <span className="relative z-10 inline-flex items-center gap-2">
         {children}

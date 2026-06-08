@@ -36,25 +36,25 @@ export function Packages() {
               whileHover={{ y: -8 }}
               className={`relative flex flex-col rounded-5xl p-8 ${
                 p.highlight
-                  ? "glass glow-amber ring-1 ring-amber-400/40"
+                  ? "glass glow-primary ring-1 ring-primary/40"
                   : "glass"
               }`}
             >
               {p.highlight && (
-                <span className="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-300 via-amber-400 to-clay-400 px-4 py-1.5 text-xs font-bold text-night-950">
+                <span className="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-gradient-to-r from-primary via-primaryl to-accent px-4 py-1.5 text-xs font-bold text-white">
                   <Sparkles className="h-3.5 w-3.5" />
                   Paling Populer
                 </span>
               )}
 
-              <h3 className="font-serif text-xl font-bold text-cream-100">{p.name}</h3>
-              <p className="mt-1 text-sm text-cream-200/65">{p.blurb}</p>
+              <h3 className="font-serif text-xl font-bold text-ink">{p.name}</h3>
+              <p className="mt-1 text-sm text-soft">{p.blurb}</p>
 
               <div className="mt-6 flex items-end gap-1">
                 <span className="font-serif text-4xl font-bold text-gradient">
                   {p.price}
                 </span>
-                <span className="mb-1 text-sm text-cream-200/50">
+                <span className="mb-1 text-sm text-muted">
                   {p.period}
                 </span>
               </div>
@@ -63,16 +63,21 @@ export function Packages() {
                 {p.perks.map((perk) => (
                   <li
                     key={perk}
-                    className="flex items-start gap-2.5 text-sm text-cream-100/85"
+                    className="flex items-start gap-2.5 text-sm text-soft"
                   >
                     <span
                       className={`mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full ${
                         p.highlight
-                          ? "bg-gradient-to-br from-amber-300 to-amber-500"
-                          : "bg-white/10"
+                          ? "bg-gradient-to-br from-primary to-accent"
+                          : "bg-primary/15"
                       }`}
                     >
-                      <Check className="h-3 w-3 text-night-950" strokeWidth={3} />
+                      <Check
+                        className={`h-3 w-3 ${
+                          p.highlight ? "text-white" : "text-primary"
+                        }`}
+                        strokeWidth={3}
+                      />
                     </span>
                     {perk}
                   </li>

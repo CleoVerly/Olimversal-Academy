@@ -38,17 +38,17 @@ export function Achievements() {
               whileHover={{ y: -5 }}
               className="glass group relative flex items-start gap-4 overflow-hidden rounded-4xl p-6"
             >
-              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-amber-400 to-sage-400 shadow-lg">
-                <Medal className="h-6 w-6 text-night-950" strokeWidth={2.2} />
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary to-accent shadow-lg">
+                <Medal className="h-6 w-6 text-white" strokeWidth={2.2} />
               </span>
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="font-serif text-lg font-bold text-cream-100">{a.title}</h3>
-                  <span className="rounded-full bg-white/5 px-2 py-0.5 text-xs font-semibold text-amber-200">
+                  <h3 className="font-serif text-lg font-bold text-ink">{a.title}</h3>
+                  <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold text-accent">
                     {a.year}
                   </span>
                 </div>
-                <p className="mt-1 text-sm text-cream-200/65">{a.detail}</p>
+                <p className="mt-1 text-sm text-soft">{a.detail}</p>
               </div>
             </motion.div>
           ))}

@@ -34,8 +34,8 @@ export function Subjects() {
         />
 
         {/* archival sub-header + filter tabs */}
-        <div className="mt-12 flex flex-col gap-4 border-y border-cream-100/10 py-4 sm:flex-row sm:items-center sm:justify-between">
-          <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-cream-200/45">
+        <div className="mt-12 flex flex-col gap-4 border-y border-line py-4 sm:flex-row sm:items-center sm:justify-between">
+          <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-muted">
             Olimversal Archive · {pad(list.length)} Bidang
           </span>
           <div className="flex flex-wrap gap-1.5">
@@ -48,8 +48,8 @@ export function Subjects() {
                 }}
                 className={`rounded-full px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
                   g === group
-                    ? "bg-amber-400 text-night-950"
-                    : "text-cream-200/55 hover:bg-white/5 hover:text-cream-100"
+                    ? "bg-primary text-white"
+                    : "text-soft hover:bg-primary/10 hover:text-ink"
                 }`}
               >
                 {g}
@@ -72,7 +72,7 @@ export function Subjects() {
         </div>
 
         {/* active detail + pagination (poster caption) */}
-        <div className="mt-7 flex items-end justify-between gap-6 border-t border-cream-100/10 pt-6">
+        <div className="mt-7 flex items-end justify-between gap-6 border-t border-line pt-6">
           <AnimatePresence mode="wait">
             <motion.div
               key={current.name}
@@ -83,21 +83,21 @@ export function Subjects() {
               className="max-w-xl"
             >
               <div className="flex items-center gap-3">
-                <h3 className="font-serif text-2xl font-bold text-cream-100 sm:text-3xl">
+                <h3 className="font-serif text-2xl font-bold text-ink sm:text-3xl">
                   {current.name}
                 </h3>
-                <span className="rounded-full border border-amber-300/40 px-2.5 py-0.5 font-mono text-[11px] uppercase tracking-wider text-amber-200">
+                <span className="rounded-full border border-accent/40 px-2.5 py-0.5 font-mono text-[11px] uppercase tracking-wider text-accent">
                   {current.target}
                 </span>
               </div>
-              <p className="mt-2 text-sm text-cream-200/65 sm:text-base">
+              <p className="mt-2 text-sm text-soft sm:text-base">
                 {current.blurb}
               </p>
             </motion.div>
           </AnimatePresence>
 
-          <span className="shrink-0 font-mono text-sm text-cream-200/45">
-            {pad(safe + 1)} <span className="text-cream-200/25">/ {pad(list.length)}</span>
+          <span className="shrink-0 font-mono text-sm text-muted">
+            {pad(safe + 1)} <span className="text-muted/50">/ {pad(list.length)}</span>
           </span>
         </div>
       </div>
@@ -124,7 +124,7 @@ function Panel({
       animate={{ flexGrow: isActive ? 7 : 1 }}
       transition={{ type: "spring", stiffness: 200, damping: 26 }}
       style={{ flexBasis: 0 }}
-      className="relative h-full min-w-[26px] cursor-pointer overflow-hidden rounded-2xl border border-cream-100/10 sm:min-w-[44px]"
+      className="relative h-full min-w-[26px] cursor-pointer overflow-hidden rounded-2xl border border-line sm:min-w-[44px]"
     >
       {/* accent cover */}
       <div
@@ -132,7 +132,7 @@ function Panel({
       />
       {/* darkening — lighter when active */}
       <div
-        className={`absolute inset-0 bg-night-950 transition-opacity duration-500 ${
+        className={`absolute inset-0 bg-indigo-950 transition-opacity duration-500 ${
           isActive ? "opacity-40" : "opacity-[0.72]"
         }`}
       />
@@ -140,7 +140,7 @@ function Panel({
 
       {/* giant icon watermark */}
       <Icon
-        className={`pointer-events-none absolute -bottom-6 -right-4 h-40 w-40 text-cream-100 transition-opacity duration-500 ${
+        className={`pointer-events-none absolute -bottom-6 -right-4 h-40 w-40 text-white transition-opacity duration-500 ${
           isActive ? "opacity-[0.14]" : "opacity-[0.08]"
         }`}
         strokeWidth={1.2}
@@ -152,7 +152,7 @@ function Panel({
           isActive ? "pointer-events-none opacity-0" : "opacity-100"
         }`}
       >
-        <span className="[writing-mode:vertical-rl] rotate-180 whitespace-nowrap font-serif text-lg font-medium text-cream-100/85">
+        <span className="[writing-mode:vertical-rl] rotate-180 whitespace-nowrap font-serif text-lg font-medium text-white/85">
           {subject.name}
         </span>
       </div>
@@ -164,17 +164,17 @@ function Panel({
         }`}
       >
         <div className="flex items-start justify-between">
-          <span className="font-mono text-xs uppercase tracking-[0.2em] text-cream-100/70">
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-white/70">
             {pad(index + 1)} — {subject.group}
           </span>
-          <ArrowUpRight className="h-5 w-5 text-cream-100/80" />
+          <ArrowUpRight className="h-5 w-5 text-white/80" />
         </div>
 
-        <div className="grid h-12 w-12 place-items-center rounded-xl bg-cream-100/10 backdrop-blur">
-          <Icon className="h-6 w-6 text-cream-100" strokeWidth={2} />
+        <div className="grid h-12 w-12 place-items-center rounded-xl bg-white/15 backdrop-blur">
+          <Icon className="h-6 w-6 text-white" strokeWidth={2} />
         </div>
 
-        <h3 className="whitespace-nowrap font-serif text-3xl font-bold text-cream-100 sm:text-4xl">
+        <h3 className="whitespace-nowrap font-serif text-3xl font-bold text-white sm:text-4xl">
           {subject.name}
         </h3>
       </div>

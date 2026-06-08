@@ -1,41 +1,37 @@
 @import "tailwindcss";
 
+/* manual dark mode via .dark class on <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ───────────────────────────────────────────────────────────────
-   Olimversal Academy — Design Tokens
-   Vibe: Golden Hour Earthy · cinematic · editorial
-   charcoal + amber/gold + sage + foggy cream
+   Olimversal Academy — "Deep Focus" palette
+   Primary: Indigo · Accent: Coral/Orange · light + dark mode
+   Semantic tokens flip automatically under .dark
    ─────────────────────────────────────────────────────────────── */
 @theme {
   --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
 
-  /* Night / warm charcoal surfaces */
-  --color-night-950: #0d0a07;
-  --color-night-900: #15110b;
-  --color-night-800: #1f1810;
-  --color-night-700: #2a2117;
-  --color-night-600: #3a2f21;
+  /* semantic colors → resolve to runtime vars (set in :root / .dark) */
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface2: var(--surface2);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-soft: var(--soft);
+  --color-muted: var(--muted);
 
-  /* Amber / gold — primary */
-  --color-amber-200: #f0dcb8;
-  --color-amber-300: #e6c690;
-  --color-amber-400: #d8a85f;
-  --color-amber-500: #c08838;
-  --color-amber-600: #9c6b29;
+  --color-primary: var(--primary);
+  --color-primaryd: var(--primaryd);
+  --color-primaryl: var(--primaryl);
+  --color-accent: var(--accent);
+  --color-accentl: var(--accentl);
 
-  /* Sage — secondary */
-  --color-sage-300: #c2c9b2;
-  --color-sage-400: #97a37e;
-  --color-sage-500: #6f7d57;
-
-  /* Cream / fog — text & light accents */
-  --color-cream-100: #f5efe2;
-  --color-cream-200: #e9ddc8;
-  --color-cream-300: #d6c6a8;
-
-  /* Terracotta pop */
-  --color-clay-400: #c2784d;
-  --color-clay-500: #a85d36;
+  /* fixed brand stops (don't flip) — for overlays on photos */
+  --color-indigo-950: #1e1b4b;
+  --color-indigo-900: #312e81;
+  --color-indigo-700: #4338ca;
+  --color-coral-500: #f97316;
 
   --radius-4xl: 2rem;
   --radius-5xl: 2.5rem;
@@ -44,6 +40,48 @@
   --animate-float: float 8s ease-in-out infinite;
   --animate-aurora: aurora 20s ease-in-out infinite alternate;
   --animate-kenburns: kenburns 24s ease-in-out infinite alternate;
+}
+
+/* ── Light (default) ─────────────────────────────────────── */
+:root {
+  --bg: #f3f4f6;
+  --surface: #ffffff;
+  --surface2: #eaebf3;
+  --line: rgba(49, 46, 129, 0.12);
+  --ink: #1e1b4b;
+  --soft: #4b5563;
+  --muted: #7c7f95;
+
+  --primary: #4338ca;
+  --primaryd: #312e81;
+  --primaryl: #6366f1;
+  --accent: #f97316;
+  --accentl: #fb923c;
+
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-line: rgba(49, 46, 129, 0.12);
+  --glow: rgba(67, 56, 202, 0.28);
+}
+
+/* ── Dark ────────────────────────────────────────────────── */
+.dark {
+  --bg: #0d0b1a;
+  --surface: #181530;
+  --surface2: #221e42;
+  --line: rgba(199, 197, 224, 0.12);
+  --ink: #f2f1fa;
+  --soft: #c4c2e0;
+  --muted: #8f8cb4;
+
+  --primary: #818cf8;
+  --primaryd: #6366f1;
+  --primaryl: #a5b4fc;
+  --accent: #fb7a3c;
+  --accentl: #fdba8c;
+
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-line: rgba(255, 255, 255, 0.1);
+  --glow: rgba(129, 140, 248, 0.32);
 }
 
 @keyframes marquee {
@@ -70,25 +108,26 @@
     text-rendering: optimizeLegibility;
   }
   body {
-    background-color: var(--color-night-950);
-    color: var(--color-cream-100);
+    background-color: var(--bg);
+    color: var(--ink);
     font-family: var(--font-sans);
     overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
   ::selection {
-    background-color: var(--color-amber-400);
-    color: var(--color-night-950);
+    background-color: var(--accent);
+    color: #fff;
   }
   ::-webkit-scrollbar {
     width: 11px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--color-night-950);
+    background: var(--bg);
   }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(var(--color-amber-500), var(--color-sage-500));
+    background: linear-gradient(var(--primary), var(--accent));
     border-radius: 999px;
-    border: 2px solid var(--color-night-950);
+    border: 2px solid var(--bg);
   }
 }
 
@@ -99,23 +138,22 @@
   .text-gradient {
     background-image: linear-gradient(
       100deg,
-      var(--color-amber-300),
-      var(--color-cream-100) 50%,
-      var(--color-sage-300)
+      var(--primary),
+      var(--primaryl) 45%,
+      var(--accent)
     );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
   .glass {
-    background: rgba(245, 239, 226, 0.04);
+    background: var(--glass-bg);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(230, 198, 144, 0.12);
+    border: 1px solid var(--glass-line);
   }
-  .glow-amber {
-    box-shadow: 0 0 0 1px rgba(216, 168, 95, 0.22),
-      0 22px 70px -16px rgba(192, 136, 56, 0.5);
+  .glow-primary {
+    box-shadow: 0 0 0 1px var(--glow), 0 22px 70px -16px var(--glow);
   }
   .mask-fade-x {
     -webkit-mask-image: linear-gradient(
@@ -134,11 +172,11 @@
     );
   }
   .grid-bg {
-    background-image: linear-gradient(rgba(216, 168, 95, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(216, 168, 95, 0.06) 1px, transparent 1px);
+    background-image: linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
     background-size: 56px 56px;
   }
-  /* cinematic film grain */
+  /* cinematic film grain (for photo sections) */
   .grain::after {
     content: "";
     position: absolute;

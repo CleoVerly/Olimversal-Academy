@@ -22,16 +22,16 @@ export function SectionHeading({
       }`}
     >
       <MaskText delay={0}>
-        <span className="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.28em] text-amber-300">
-          <span className="h-px w-8 bg-gradient-to-r from-transparent to-amber-400" />
+        <span className="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.28em] text-accent">
+          <span className="h-px w-8 bg-gradient-to-r from-transparent to-accent" />
           {eyebrow}
-          <span className="h-px w-8 bg-gradient-to-l from-transparent to-amber-400" />
+          <span className="h-px w-8 bg-gradient-to-l from-transparent to-accent" />
         </span>
       </MaskText>
 
       <MaskText
         delay={0.1}
-        className={`font-serif text-4xl font-bold leading-[1.1] text-cream-100 sm:text-5xl ${
+        className={`font-serif text-4xl font-bold leading-[1.1] text-ink sm:text-5xl ${
           isCenter ? "max-w-3xl" : "max-w-2xl"
         }`}
       >
@@ -41,7 +41,7 @@ export function SectionHeading({
       {subtitle && (
         <MaskText
           delay={0.2}
-          className={`text-base text-cream-200/65 sm:text-lg ${
+          className={`text-base text-soft sm:text-lg ${
             isCenter ? "max-w-2xl" : "max-w-xl"
           }`}
         >
