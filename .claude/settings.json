@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "C:\\Users\\leviathans\\dev\\olimversal\\public"
+    ],
+    "allow": [
+      "PowerShell(git add -A; git commit -q -m 'Ganti palet ke Akademia \\(ivory + tinta + oxblood/terracotta\\)' -m 'Co-Authored-By: Claude Opus 4.8 \\(1M context\\) <noreply@anthropic.com>'; git push origin versi1 2>&1 | Select-Object -Last 1; Write-Output \"=== deploy ===\"; $env:GIT_SSH_COMMAND='ssh -i C:/Users/Leviathans/dev/.ssh/olimversal-vm_key.pem'; git push production versi1 2>&1 | Select-String -Pattern 'Compiled successfully|launched|online|OK deploy|error' | Select-Object -Last 6)"
+    ]
+  }
+}

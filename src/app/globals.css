@@ -27,11 +27,11 @@
   --color-accent: var(--accent);
   --color-accentl: var(--accentl);
 
-  /* fixed brand stops (don't flip) — for overlays on photos */
-  --color-indigo-950: #1e1b4b;
-  --color-indigo-900: #312e81;
-  --color-indigo-700: #4338ca;
-  --color-coral-500: #f97316;
+  /* fixed dark stops (don't flip) — overlays on photos */
+  --color-indigo-950: #16130f;
+  --color-indigo-900: #2a1e18;
+  --color-indigo-700: #6e2b2b;
+  --color-coral-500: #c2683c;
 
   --radius-4xl: 2rem;
   --radius-5xl: 2.5rem;
@@ -44,44 +44,44 @@
 
 /* ── Light (default) ─────────────────────────────────────── */
 :root {
-  --bg: #f3f4f6;
+  --bg: #f6f4ee;
   --surface: #ffffff;
-  --surface2: #eaebf3;
-  --line: rgba(49, 46, 129, 0.12);
-  --ink: #1e1b4b;
-  --soft: #4b5563;
-  --muted: #7c7f95;
+  --surface2: #ece7db;
+  --line: rgba(27, 24, 21, 0.12);
+  --ink: #1b1815;
+  --soft: #5a5048;
+  --muted: #8a7f73;
 
-  --primary: #4338ca;
-  --primaryd: #312e81;
-  --primaryl: #6366f1;
-  --accent: #f97316;
-  --accentl: #fb923c;
+  --primary: #6e2b2b;
+  --primaryd: #5a2222;
+  --primaryl: #9a4a45;
+  --accent: #c2683c;
+  --accentl: #d98a5a;
 
-  --glass-bg: rgba(255, 255, 255, 0.65);
-  --glass-line: rgba(49, 46, 129, 0.12);
-  --glow: rgba(67, 56, 202, 0.28);
+  --glass-bg: rgba(255, 255, 255, 0.62);
+  --glass-line: rgba(27, 24, 21, 0.1);
+  --glow: rgba(110, 43, 43, 0.25);
 }
 
 /* ── Dark ────────────────────────────────────────────────── */
 .dark {
-  --bg: #0d0b1a;
-  --surface: #181530;
-  --surface2: #221e42;
-  --line: rgba(199, 197, 224, 0.12);
-  --ink: #f2f1fa;
-  --soft: #c4c2e0;
-  --muted: #8f8cb4;
+  --bg: #16130f;
+  --surface: #211c17;
+  --surface2: #2a241d;
+  --line: rgba(242, 236, 224, 0.12);
+  --ink: #f2ece0;
+  --soft: #cfc4b4;
+  --muted: #9a8e7e;
 
-  --primary: #818cf8;
-  --primaryd: #6366f1;
-  --primaryl: #a5b4fc;
-  --accent: #fb7a3c;
-  --accentl: #fdba8c;
+  --primary: #c97a6d;
+  --primaryd: #b0645a;
+  --primaryl: #dda08f;
+  --accent: #e0894f;
+  --accentl: #eda877;
 
   --glass-bg: rgba(255, 255, 255, 0.05);
   --glass-line: rgba(255, 255, 255, 0.1);
-  --glow: rgba(129, 140, 248, 0.32);
+  --glow: rgba(201, 122, 109, 0.3);
 }
 
 @keyframes marquee {
